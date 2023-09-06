@@ -1,0 +1,19 @@
+from loguru import logger
+from lchop.task_context import TaskContext
+
+
+{% for task in workflow %}
+@TaskContext.register_task
+async def {{ task['action'] }}(work_ctx, {% for param in task['params'] %}{{ param }}{% if not loop.last %}, {% endif %}{% endfor %}):
+    try:
+        logger.info(f"Executing task: {{ task['action'] }}")
+
+        # Task-specific code here...
+
+        return {'success': True, 'results': f"Successfully executed: {{ task['action'] }}"}
+    except Exception as e:
+        logger.error(f"Failed to execute task: {{ task['action'] }}. Exception: {str(e)}")
+        return {'success': False, 'results': f"Failed to execute: {{ task['action'] }}"}
+
+
+{% endfor %}

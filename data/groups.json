@@ -1,0 +1,250 @@
+{
+  "data": {
+    "statuses": {},
+    "results": {
+      "*1850284": "urn:li:fs_salesGroup:1850284",
+      "*39259": "urn:li:fs_salesGroup:39259",
+      "*56766": "urn:li:fs_salesGroup:56766",
+      "*2046019": "urn:li:fs_salesGroup:2046019",
+      "*3761": "urn:li:fs_salesGroup:3761"
+    },
+    "errors": {}
+  },
+  "included": [
+    {
+      "groupPictureDisplayImage": {
+        "artifacts": [
+          {
+            "width": 48,
+            "fileIdentifyingUrlPathSegment": "48x48/0/1631005719255?e=1694534400&v=beta&t=OfRniu-_d3wmK3brAJxCXYhTTSDFw5qLQ2EWGu0-qIQ",
+            "height": 48,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 200,
+            "fileIdentifyingUrlPathSegment": "200x200/0/1631005719255?e=1694534400&v=beta&t=LFM79TToOIO-6wNAow5n1nzKv6QXNrqcWj4EkHYU-fs",
+            "height": 200,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 400,
+            "fileIdentifyingUrlPathSegment": "400x400/0/1631005719255?e=1694534400&v=beta&t=Zl4UGs-rgDdOCOLL4FXsOWYkCiifdAWoEEHo2C3QqiI",
+            "height": 400,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 92,
+            "fileIdentifyingUrlPathSegment": "92x92/0/1631005719255?e=1694534400&v=beta&t=GR92YyQKNP-Lz3PPcA_8JQGCrU33sIWo4BGz5OR3Lrs",
+            "height": 92,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 24,
+            "fileIdentifyingUrlPathSegment": "24x24/0/1631005719255?e=1694534400&v=beta&t=usReonVvmVjUxYSClQ8zP58I6xEjWJ2xUE2UxMJxvlk",
+            "height": 24,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 72,
+            "fileIdentifyingUrlPathSegment": "72x72/0/1631005719255?e=1694534400&v=beta&t=PCunTm_SAdprqKLSsZeohPQl1pjmdVcA37GLZzKKvmQ",
+            "height": 72,
+            "$type": "com.linkedin.common.VectorArtifact"
+          }
+        ],
+        "rootUrl": "https://media.licdn.com/dms/image/C4D07AQFqHWnNcf7d0Q/group-logo_image-shrink_",
+        "$type": "com.linkedin.common.VectorImage"
+      },
+      "entityUrn": "urn:li:fs_salesGroup:56766",
+      "name": "STARTUP SPECIALISTS NETWORK GROUP Entrepreneurs Business Startups Social Digital Media AI Marketing",
+      "$type": "com.linkedin.sales.organization.Group"
+    },
+    {
+      "groupPictureDisplayImage": {
+        "artifacts": [
+          {
+            "width": 48,
+            "fileIdentifyingUrlPathSegment": "48x48/0/1688481039529?e=1694534400&v=beta&t=t1Qx7defARWHzIQvMkSz68mii2_OJa_Jq9NjgDTQUdc",
+            "height": 48,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 200,
+            "fileIdentifyingUrlPathSegment": "200x200/0/1688481039529?e=1694534400&v=beta&t=St1BM219QNVGlHAnel3KWJ5SMgm1l9VVfDuXd_ccyl0",
+            "height": 200,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 400,
+            "fileIdentifyingUrlPathSegment": "400x400/0/1688481039529?e=1694534400&v=beta&t=Dkxsu3cbD08sTkPcsGgSb7xzUoEMz0UwkMXI-f6HPDI",
+            "height": 400,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 92,
+            "fileIdentifyingUrlPathSegment": "92x92/0/1688481039529?e=1694534400&v=beta&t=t5q38N6jZCC0PhdDtsg5e2FGYJ00ozIREzG5VeKJJdQ",
+            "height": 92,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 24,
+            "fileIdentifyingUrlPathSegment": "24x24/0/1688481039529?e=1694534400&v=beta&t=IBKxKd2D4GwN7d2MsRnfyYqRMfeGMd4kR5vXvNuJ6pQ",
+            "height": 24,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 72,
+            "fileIdentifyingUrlPathSegment": "72x72/0/1688481039529?e=1694534400&v=beta&t=aBPLYRuVORA8XMJzwPeTOB7mGC_aviz66B9aSbAtqBQ",
+            "height": 72,
+            "$type": "com.linkedin.common.VectorArtifact"
+          }
+        ],
+        "rootUrl": "https://media.licdn.com/dms/image/D4D07AQFkLAkV2-_yNw/group-logo_image-shrink_",
+        "$type": "com.linkedin.common.VectorImage"
+      },
+      "entityUrn": "urn:li:fs_salesGroup:39259",
+      "name": "Finance Plus: Private Equity, Venture Capital and M&A News",
+      "$type": "com.linkedin.sales.organization.Group"
+    },
+    {
+      "groupPictureDisplayImage": {
+        "artifacts": [
+          {
+            "width": 48,
+            "fileIdentifyingUrlPathSegment": "48x48/0/1673885230018?e=1694534400&v=beta&t=pK_myKd8UiDByQOEq-gZi-Ks2XYcEJZBRIDZEHvYPVQ",
+            "height": 48,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 200,
+            "fileIdentifyingUrlPathSegment": "200x200/0/1673885230018?e=1694534400&v=beta&t=Y_voCd3pcfzQw8KXW2WtWbzUCAzM710KuAMlcj5-ZpE",
+            "height": 200,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 400,
+            "fileIdentifyingUrlPathSegment": "400x400/0/1673885230018?e=1694534400&v=beta&t=bLIQBb20vN7cmEj68b_pd_j0UAdAXYP0yibJOwvw-fg",
+            "height": 400,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 92,
+            "fileIdentifyingUrlPathSegment": "92x92/0/1673885230018?e=1694534400&v=beta&t=A2BQ6Urascwawn1tAGDVUheFtEe3wfclcXN4NhB3Goc",
+            "height": 92,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 24,
+            "fileIdentifyingUrlPathSegment": "24x24/0/1673885230018?e=1694534400&v=beta&t=o3Wqenh6tHI1CaSYANXHC6DuN7x7q0JqLTU6i9Tl-gs",
+            "height": 24,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 72,
+            "fileIdentifyingUrlPathSegment": "72x72/0/1673885230018?e=1694534400&v=beta&t=gvoQ-CXql-Q_16olqrEawlnDqKkHNtFvI3xLPHIeMzw",
+            "height": 72,
+            "$type": "com.linkedin.common.VectorArtifact"
+          }
+        ],
+        "rootUrl": "https://media.licdn.com/dms/image/D4E07AQF0VMZ4-S9osA/group-logo_image-shrink_",
+        "$type": "com.linkedin.common.VectorImage"
+      },
+      "entityUrn": "urn:li:fs_salesGroup:1850284",
+      "name": "Business Development - The Missing Link Between Marketing & Sales",
+      "$type": "com.linkedin.sales.organization.Group"
+    },
+    {
+      "groupPictureDisplayImage": {
+        "artifacts": [
+          {
+            "width": 48,
+            "fileIdentifyingUrlPathSegment": "48x48/0/1693398593730?e=1694534400&v=beta&t=NoiXnByoBGJByPJMAI7S5yO6vUuGOOYGxk3HB4HVJHk",
+            "height": 48,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 200,
+            "fileIdentifyingUrlPathSegment": "200x200/0/1693398593730?e=1694534400&v=beta&t=MXfSvCR7npV_7Apg7IRbR1-He9HFMkIFuDrMbPm-owA",
+            "height": 200,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 400,
+            "fileIdentifyingUrlPathSegment": "400x400/0/1693398593730?e=1694534400&v=beta&t=HwDYRbPPnl2MbGEhXQryOy_lDT-BwWd5s1gzeXg9vhY",
+            "height": 400,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 92,
+            "fileIdentifyingUrlPathSegment": "92x92/0/1693398593730?e=1694534400&v=beta&t=xVFznIr2MPZXTHi-Citj-5ZsQSSXs39XgDSL0Uwho9Y",
+            "height": 92,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 24,
+            "fileIdentifyingUrlPathSegment": "24x24/0/1693398593730?e=1694534400&v=beta&t=gR9xzzywY6AGWI0Nwb6veW3NiLGidXufpoTP0_K_K9M",
+            "height": 24,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 72,
+            "fileIdentifyingUrlPathSegment": "72x72/0/1693398593730?e=1694534400&v=beta&t=MkXef0lza31dkvtkeT5--I6MgTIzQT5zJ88RfSUuCsI",
+            "height": 72,
+            "$type": "com.linkedin.common.VectorArtifact"
+          }
+        ],
+        "rootUrl": "https://media.licdn.com/dms/image/D5607AQEoBI38bgwFuA/group-logo_image-shrink_",
+        "$type": "com.linkedin.common.VectorImage"
+      },
+      "entityUrn": "urn:li:fs_salesGroup:2046019",
+      "name": " InvestorClub.com: CEOs, Investors & Business Owners | Attend Live In-Person Events Every 60 Days",
+      "$type": "com.linkedin.sales.organization.Group"
+    },
+    {
+      "groupPictureDisplayImage": {
+        "artifacts": [
+          {
+            "width": 48,
+            "fileIdentifyingUrlPathSegment": "48x48/0/1630997096649?e=1694534400&v=beta&t=c8NJt8Tum_RcWCwGBt_VXnUi-dC4BIr5L9VpyA6u200",
+            "height": 48,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 200,
+            "fileIdentifyingUrlPathSegment": "200x200/0/1630997096649?e=1694534400&v=beta&t=MkxNzA9RnIFFpzBu7oT14rBbQNqnh4Lmv_CBVwqRQuU",
+            "height": 200,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 200,
+            "fileIdentifyingUrlPathSegment": "400x400/0/1630997096649?e=1694534400&v=beta&t=W1Sl0cuaerY-2ikVd19TxonmldobUF3OorB81We2W3A",
+            "height": 200,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 92,
+            "fileIdentifyingUrlPathSegment": "92x92/0/1630997096649?e=1694534400&v=beta&t=3IfuWrUtG2MBBt_kY7myMvJxJB1Z6nxpENlgmVkLiVo",
+            "height": 92,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 24,
+            "fileIdentifyingUrlPathSegment": "24x24/0/1630997096649?e=1694534400&v=beta&t=G9VTtwjPtErviyNGxaJ1ug4xfAqIIId45v-2_yEGMHA",
+            "height": 24,
+            "$type": "com.linkedin.common.VectorArtifact"
+          },
+          {
+            "width": 72,
+            "fileIdentifyingUrlPathSegment": "72x72/0/1630997096649?e=1694534400&v=beta&t=_rH2Bf7LlLo4dNg-jXe4FBTKn86ttLbzw4SqbKy9R7U",
+            "height": 72,
+            "$type": "com.linkedin.common.VectorArtifact"
+          }
+        ],
+        "rootUrl": "https://media.licdn.com/dms/image/C5607AQE0_ZIczWsHLA/group-logo_image-shrink_",
+        "$type": "com.linkedin.common.VectorImage"
+      },
+      "entityUrn": "urn:li:fs_salesGroup:3761",
+      "name": "Linked:HR (#1 Human Resources Group)",
+      "$type": "com.linkedin.sales.organization.Group"
+    }
+  ]
+} 

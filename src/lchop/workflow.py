@@ -5,13 +5,12 @@ import asyncio
 import yaml
 from munch import Munch
 
-from lchop.browser_context import BrowserContext
-from lchop.task_context import TaskContext
+from lchop.browser.browser_context import BrowserContext
+from lchop.tasks.task_context import TaskContext
 from lchop.work_context import WorkContext
-from lchop.template_context import TemplateContext
+from lchop.template.template_context import TemplateContext
 from loguru import logger
 
-from lchop.tasks.chief_of_staff_gpt_tasks import *
 
 def load_template_from_file(self, filename):
     try:
@@ -62,15 +61,43 @@ async def print_goodbye(work_ctx, message="Goodbye, World!"):
 #     return True
 
 
-async def inject_tasks(workflow_config, work_ctx):
-    # Logic to inject tasks based on the conditions or configurations
-    injected_tasks = []  # Assume this list contains the tasks you want to inject.
+from loguru import logger
+import yaml
 
-    # Insert the tasks into the workflow_config right after the 'load_workflow' task
-    for index, task in enumerate(workflow_config.workflow):
-        if task.action == 'load_workflow':
-            workflow_config.workflow[index + 1:index + 1] = injected_tasks
-            break
+
+async def inject_tasks(workflow_config, work_ctx):
+    logger.info("Attempting to identify and execute 'load_workflow' tasks...")
+
+    # Identify 'load_workflow' tasks and their indices
+    load_workflow_indices = [index for index, task in enumerate(workflow_config.workflow) if
+                             task.action == 'load_workflow']
+
+    if not load_workflow_indices:
+        logger.info("'load_workflow' tasks not found. Skipping injection.")
+        return
+
+    for index in reversed(load_workflow_indices):
+        task = workflow_config.workflow[index]
+        yaml_path = task.params.get('path')
+
+        # If yaml_path is not set, raise an error for a fail-fast approach
+        if not yaml_path:
+            logger.error("'load_workflow' task found, but no yaml_path specified.")
+            raise ValueError("YAML path for 'load_workflow' is not specified.")
+
+        try:
+            # Load the new workflows from the given yaml_path
+            with open(yaml_path, 'r') as stream:
+                new_workflow_config = Munch.fromDict(yaml.safe_load(stream))
+                logger.info(f"Successfully loaded new workflow from {yaml_path}")
+
+            # Inject new tasks into the current workflow and remove the 'load_workflow' task
+            workflow_config.workflow[index:index + 1] = new_workflow_config['workflow']
+            logger.info(f"Injection complete. 'load_workflow' task at index {index} replaced by tasks from {yaml_path}")
+
+        except Exception as e:
+            logger.error(f"Failed to load or inject new workflow from {yaml_path}. Exception: {str(e)}")
+            raise Exception(f"Failed to load or inject new workflow. Aborting.") from e
 
 
 async def exe_task(task_config, work_ctx):
@@ -99,6 +126,7 @@ async def exe_workflow(workflow_config, work_ctx):
             logger.error(f"Task {task_config['action']} failed. Stopping workflow.")
             return False
 
+    logger.info(f"Results: {len(work_ctx.task_ctx.results.keys())}")
     logger.info("Workflow execution completed.")
     return True
 
@@ -117,5 +145,5 @@ if __name__ == '__main__':
     work_ctx = WorkContext(TaskContext(), TemplateContext(), BrowserContext())
 
     # Load and execute the workflow from a YAML file
-    load_workflow('your_workflow.yaml', work_ctx)
+    load_workflow('workflows/hello_world_workflow.yaml', work_ctx)
     

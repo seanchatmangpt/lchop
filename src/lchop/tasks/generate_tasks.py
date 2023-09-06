@@ -11,7 +11,7 @@ def generate_task_code_from_workflow(workflow_path, output_file_path, work_ctx):
         with open(workflow_path, 'r') as stream:
             workflow_config = yaml.safe_load(stream)
 
-        rendered = work_ctx.template_ctx.render_file_template('task_function_template.j2',
+        rendered = work_ctx.template_ctx.render_file_template(' task_function_template.j2',
                                                               workflow=workflow_config.get('workflow'))
 
         with open(output_file_path, 'w') as f:

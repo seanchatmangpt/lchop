@@ -1,5 +1,5 @@
 from loguru import logger
-from lchop.task_context import TaskContext
+from lchop.tasks.task_context import TaskContext
 
 
 @TaskContext.register_task

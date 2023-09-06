@@ -1,8 +1,8 @@
 from loguru import logger
 
-from lchop.browser_context import BrowserContext
-from lchop.task_context import TaskContext
-from lchop.template_context import TemplateContext
+from lchop.browser.browser_context import BrowserContext
+from lchop.tasks.task_context import TaskContext
+from lchop.template.template_context import TemplateContext
 
 
 class WorkContext:

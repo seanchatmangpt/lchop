@@ -1,7 +1,7 @@
 import asyncio
 import functools
 
-from lchop.task_context import TaskContext
+from lchop.tasks.task_context import TaskContext
 from lchop.work_context import WorkContext
 from loguru import logger
 

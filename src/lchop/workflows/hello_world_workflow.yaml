@@ -7,6 +7,3 @@ workflow:
     params:
       path: "workflows/your_workflow.yaml"
   - action: print_goodbye
-  - action: load_workflow
-    params:
-      path: "workflows/your_workflow.yaml"

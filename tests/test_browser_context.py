@@ -1,7 +1,7 @@
 import asyncio
 import pytest
 
-from lchop.browser_context import BrowserContext
+from lchop.browser.browser_context import BrowserContext
 
 
 @pytest.fixture

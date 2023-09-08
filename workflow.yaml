@@ -1,0 +1,4 @@
+workflow:
+  - action: print_hello
+  - action: print_goodbye
+

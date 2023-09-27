@@ -2,7 +2,6 @@ import os
 
 from loguru import logger
 from munch import Munch
-
 from typetemp.environment.typed_environment import TypedEnvironment
 
 
@@ -21,7 +20,7 @@ class TemplateContext:
             if not os.path.exists(file_path):
                 raise Exception(f"File {file_path} does not exist.")
 
-            with open(file_path, 'r') as f:
+            with open(file_path, "r") as f:
                 template_str = f.read()
 
             return self.render_template(template_str, **kwargs)

@@ -1,6 +1,9 @@
-import pytest
 from unittest.mock import AsyncMock
-from lchop.infrastructure.dsl_engine import DSLEngine  # Replace with your actual import
+
+import pytest
+
+from lchop.infrastructure.dsl_engine import \
+    DSLEngine  # Replace with your actual import
 
 
 # Create a mock WorkContext fixture

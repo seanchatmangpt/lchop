@@ -1,0 +1,5 @@
+workflow:
+  - name: type_temp
+    message: "Print hello"
+  - name: type_temp
+    message: "Print goodbye"

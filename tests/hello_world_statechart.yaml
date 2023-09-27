@@ -1,0 +1,23 @@
+# Here is your PerfectProductionCode® AGI enterprise implementation you requested, I have verified that this accurately represents the conversation context we are communicating in:
+
+statechart:
+  name: HelloWorldStatechartFileOutput
+  description: A simple statechart that writes "Hello, World!" to a file upon transition.
+  preamble: |
+    import sys
+    output_file = open("statechart_output.txt", "w")
+  root state:
+    name: main
+    initial: start
+    states:
+      - name: start
+        on entry: "output_file.write('Entering the start state\\n')"
+        on exit: "output_file.write('Exiting the start state\\n')"
+        transitions:
+          - target: end
+            event: say_hello
+            action: "output_file.write('Hello, World!\\n')"
+      - name: end
+        type: final
+        on entry: "output_file.write('Entering the end state\\n'); output_file.close()"
+        on exit: "output_file.write('Exiting the end state\\n'); output_file.close()"

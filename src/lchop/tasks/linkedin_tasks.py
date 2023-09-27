@@ -1,25 +1,19 @@
 import asyncio
 import functools
+from urllib.parse import quote, urlencode
 
-from lchop.tasks.task_context import TaskContext
-from lchop.work_context import WorkContext
 from loguru import logger
 
-def with_delay(delay_seconds=1):  # Set default delay to 1 second
-    def decorator(func):
-        @functools.wraps(func)
-        async def wrapper(*args, **kwargs):
-            await asyncio.sleep(delay_seconds)
-            return await func(*args, **kwargs)
-        return wrapper
-    return decorator
+from lchop.context.browser_context import with_delay
+from lchop.context.task_context import register_task
+from lchop.context.work_context import WorkContext
 
 
-@TaskContext.register_task
-async def hello_world_template(task, dsl_ctx: WorkContext):
+@register_task
+async def hello_world_template(work_ctx: WorkContext, **kwargs):
     try:
         # Extracting the TemplateContext
-        template_ctx = dsl_ctx.template_ctx
+        template_ctx = work_ctx.template_ctx
 
         # Define the template string
         template_str = "Hello {{ world_var }}!"
@@ -40,38 +34,36 @@ async def hello_world_template(task, dsl_ctx: WorkContext):
 
 
 @with_delay()
-@TaskContext.register_task
-async def navigate_to_url(task, dsl_ctx: WorkContext):
+@register_task
+async def navigate_to_url(work_ctx: WorkContext, url, **kwargs):
     try:
-        url = task.get("url", "")
-        page = dsl_ctx.browser_ctx.page
+        page = work_ctx.browser_ctx.page
         await page.goto(url)
         logger.info(f"Navigated to URL: {url}")
     except Exception as e:
         logger.error(f"Failed to navigate to URL: {str(e)}")
         raise
 
-@with_delay()
-@TaskContext.register_task
-async def click_element(task, dsl_ctx: WorkContext):
+
+@with_delay
+@register_task
+async def click_element(work_ctx: WorkContext, selector, **kwargs):
     try:
-        browser_ctx = dsl_ctx.browser_ctx
-        selector = task.get("selector", "")
-        page = await browser_ctx.newPage()
-        await page.click(selector)
+        browser_ctx = work_ctx.browser_ctx
+
+        await browser_ctx.page.click(selector)
         logger.info(f"Clicked element: {selector}")
     except Exception as e:
         logger.error(f"Failed to click element: {str(e)}")
         raise
 
-@with_delay()
-@TaskContext.register_task
-async def fill_linkedin(task, dsl_ctx: WorkContext):
+
+@with_delay
+@register_task
+async def fill_linkedin(work_ctx: WorkContext, selector, value, **kwargs):
     try:
-        browser_ctx = dsl_ctx.browser_ctx
-        selector = task.get("selector", "")
-        value = task.get("value", "")
-        page = await browser_ctx.newPage()
+        browser_ctx = work_ctx.browser_ctx
+        page = browser_ctx.page
         await page.type(selector, value)
         logger.info(f"Filled form field {selector} with value {value}")
     except Exception as e:
@@ -79,9 +71,49 @@ async def fill_linkedin(task, dsl_ctx: WorkContext):
         raise
 
 
+def sales_nav_url(keywords):
+    base_url = "https://www.linkedin.com/sales/search/people"
+    search_query = f"(spellCorrectionEnabled:true,keywords:{keywords})"
+    query_params = {"query": search_query}
+    encoded_query = urlencode(query_params, quote_via=quote)
+    full_url = f"{base_url}?{encoded_query}"
+    return full_url
+
+
+def group_url(group_id):
+    base_url = "https://www.linkedin.com/groups"
+    full_url = f"{base_url}/{group_id}/"
+    return full_url
+
+
+def group_members_url(group_id):
+    full_url = f"{group_url(group_id)}/members/"
+    return full_url
+
+
+def success(results=None):
+    return {"success": True, "results": f"{results}"}
+
+
+@with_delay
+@register_task
+async def navigate_to_group_members(work_ctx: WorkContext, group_id, **kwargs):
+    page = work_ctx.browser_ctx.page
+
+    await page.goto(group_members_url(group_id))
+    return success("Navigated to group members page.")
+
+
+@register_task
+async def search_ln_sales_nav(work_ctx: WorkContext, keywords, **kwargs):
+    page = work_ctx.browser_ctx.page
+
+    await page.goto(sales_nav_url(keywords))
+
 
 class LinkedInGroup:
     name: str
+
 
 class LinkedInProfile:
     groups: list
@@ -112,27 +144,31 @@ class LinkedInProfile:
         self.__dict__.update(kwargs)
 
 
-@TaskContext.register_task
-async def generate_profiles_page(task, dsl_ctx):
-        data = task.profiles
+@register_task
+async def generate_profiles_page(task, work_ctx, **kwargs):
+    data = task.profiles
 
-        profiles = []
+    profiles = []
 
-        for profile in data.elements:
-            del profile['$recipeType']
-            del profile['$anti_abuse_metadata']
+    for profile in data.elements:
+        del profile["$recipeType"]
+        del profile["$anti_abuse_metadata"]
 
-            # create profile link
-            urn = profile['entityUrn'].split(":")[3]
-            urn = urn.replace("(", "")
-            urn = urn.replace(")", "")
-            profile['profileLink'] = f"https://www.linkedin.com/sales/lead/{urn}"
+        # create profile link
+        urn = profile["entityUrn"].split(":")[3]
+        urn = urn.replace("(", "")
+        urn = urn.replace(")", "")
+        profile["profileLink"] = f"https://www.linkedin.com/sales/lead/{urn}"
 
-            pro = LinkedInProfile(**profile)
-            profiles.append(pro)
+        pro = LinkedInProfile(**profile)
+        profiles.append(pro)
 
-        print(profiles[0].profilePictureDisplayImage)
-        pro = profiles[0]
-        full_img = pro.profilePictureDisplayImage['rootUrl'] + pro.profilePictureDisplayImage['artifacts'][0][
-            'fileIdentifyingUrlPathSegment']
-        print(full_img)
+    print(profiles[0].profilePictureDisplayImage)
+    pro = profiles[0]
+    full_img = (
+        pro.profilePictureDisplayImage["rootUrl"]
+        + pro.profilePictureDisplayImage["artifacts"][0][
+            "fileIdentifyingUrlPathSegment"
+        ]
+    )
+    print(full_img)

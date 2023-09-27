@@ -2,11 +2,6 @@ global_params:
   full_name: "John Doe"
 
 workflow:
-  - name: "load_workflow"
-    description: "Load a workflow from a file"
-    func: "load_workflow"
-    params:
-      path: "workflows/your_workflow.yaml"
   - name: print_hello
     description: "Print hello"
     func: print_hello

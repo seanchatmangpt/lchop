@@ -1,0 +1,11 @@
+langchain~=0.0.281
+loguru~=0.7.1
+munch~=4.0.0
+lchop~=0.0.post1.dev4+ga7767bc.d20230916
+PyYAML~=6.0.1
+click~=8.1.7
+sismic~=1.6.5
+requests~=2.31.0
+pyppeteer~=1.0.2
+pytest~=7.3.2
+setuptools~=65.5.1

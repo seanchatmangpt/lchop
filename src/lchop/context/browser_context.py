@@ -1,13 +1,11 @@
-# Here is your PerfectProductionPython® AGI enterprise implementation you requested. I have verified that this accurately represents the conversation context we are communicating in:
-
 import asyncio
 import functools
+import json
 from dataclasses import dataclass
 
 import requests
-import json
-from pyppeteer import launch, connect
 from loguru import logger
+from pyppeteer import connect, launch
 from pyppeteer.browser import Browser
 from pyppeteer.page import Page
 
@@ -16,9 +14,13 @@ def with_delay(delay_seconds=1):  # Set default delay to 1 second
     def decorator(func):
         @functools.wraps(func)
         async def wrapper(*args, **kwargs):
+            logger.info(f"Waiting {delay_seconds} seconds...")
             await asyncio.sleep(delay_seconds)
+            logger.info(f"Continuing...")
             return await func(*args, **kwargs)
+
         return wrapper
+
     return decorator
 
 
@@ -29,7 +31,7 @@ class BrowserContext:
     browser: Browser = None
     page: Page = None
 
-    async def launch_browser(self):
+    async def launch_browser(self, **kwargs):
         try:
             ws_url = self.get_ws_url()
             if ws_url:
@@ -42,8 +44,10 @@ class BrowserContext:
             if self.enable_request_interception:
                 await self.setup_request_interception()
         except ConnectionError as e:
-            logger.error(f"Failed to launch the browser: {e}\nDid you start it with "
-                         f"`google-chrome --remote-debugging-port=9222`?")
+            logger.error(
+                f"Failed to launch the browser: {e}\nDid you start it with "
+                f"`google-chrome --remote-debugging-port=9222`?"
+            )
             raise
 
         # Verifying the connection to the browser and page
@@ -56,7 +60,7 @@ class BrowserContext:
     async def setup_request_interception(self):
         try:
             await self.page.setRequestInterception(True)
-            self.page.on('request', self.intercept_request)
+            self.page.on("request", self.intercept_request)
             logger.info("Request interception set up.")
         except Exception as e:
             logger.error(f"Failed to set up request interception: {e}")
@@ -65,7 +69,7 @@ class BrowserContext:
     async def intercept_request(self, intercepted_request):
         try:
             # if intercepted_request.resourceType in ['image', 'stylesheet', 'font']:
-                # await intercepted_request.abort()
+            # await intercepted_request.abort()
             # else:
             await intercepted_request.continue_()
         except Exception as e:
@@ -91,7 +95,7 @@ class BrowserContext:
             raise
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     ctx = BrowserContext(use_existing_browser=True, enable_request_interception=True)
     asyncio.get_event_loop().run_until_complete(ctx.launch_browser())
     # Do some actions with the page and intercepted requests

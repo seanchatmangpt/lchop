@@ -1,0 +1,10 @@
+global_params:
+  full_name: "John Doe"
+  chart_id: "hello_world"
+
+workflow:
+  - name: state_from_file
+    params:
+      filepath: "hello_world_statechart.yaml"
+  - name: execute_once
+  - name: execute_once

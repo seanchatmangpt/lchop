@@ -1,0 +1,5 @@
+workflow:
+  - name: type_prompt
+    message: "Print hello"
+  - name: type_prompt
+    message: "Print goodbye"

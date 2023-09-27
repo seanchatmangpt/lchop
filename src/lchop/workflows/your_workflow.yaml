@@ -1,5 +1,6 @@
 workflow:
-  - action: performMarketAnalysis
+  - name: performMarketAnalysis
+    description: 'Perform market analysis to identify target audience and competitors'
     params:
       target_audience: 'Multi-family Office Chiefs'
       research_tools: ['Surveys', 'Focus Groups']
@@ -7,7 +8,8 @@ workflow:
       pricing_models: ['Subscription', 'AUM%']
       report_format: 'PDF'
 
-  - action: defineServiceTiers
+  - name: defineServiceTiers
+    description: 'Define service tiers and pricing strategy'
     params:
       tiers: ['Basic', 'Premium', 'Elite']
       services: ['Financial Planning', 'Tax Optimization', 'Estate Planning']
@@ -15,7 +17,8 @@ workflow:
       add_ons: ['Real-time Monitoring', 'Family Governance']
       tier_description_template: 'service_tier_description.jinja'
 
-  - action: developBackend
+  - name: developBackend
+    description: 'Develop backend to support service tiers'
     params:
       tech_stack: 'Python, Flask'
       security_measures: ['JWT', 'HTTPS']
@@ -23,7 +26,8 @@ workflow:
       project_structure: 'MVC'
       endpoint_template: 'api_endpoint.jinja'
 
-  - action: createFrontendDashboard
+  - name: createFrontendDashboard
+    description: 'Create frontend dashboard to display financial metrics'
     params:
       tech_stack: 'HTML, CSS, JavaScript'
       frameworks: ['Bootstrap']
@@ -31,7 +35,8 @@ workflow:
       user_roles: ['Chief', 'Advisor']
       dashboard_template: 'dashboard_ui.jinja'
 
-  - action: implementPaymentGateway
+  - name: implementPaymentGateway
+    description: 'Implement payment gateway to support subscription and one-time payments'
     params:
       provider: 'Stripe'
       payment_models: ['Subscription', 'One-Time']
@@ -39,7 +44,8 @@ workflow:
       transaction_fees: 'Pass to customer'
       gateway_template: 'payment_gateway.jinja'
 
-  - action: integrateAnalytics
+  - name: integrateAnalytics
+    description: 'Integrate analytics to track user engagement and conversion rate'
     params:
       tools: ['Google Analytics']
       metrics: ['User Engagement', 'Conversion Rate']
@@ -47,7 +53,8 @@ workflow:
       report_frequency: 'Monthly'
       analytics_template: 'analytics_config.jinja'
 
-  - action: performSecurityAudit
+  - name: performSecurityAudit
+    description: 'Perform security audit to identify vulnerabilities and compliance issues'
     params:
       audit_tools: ['OWASP ZAP', 'Nessus']
       compliance: ['GDPR', 'HIPAA']
@@ -55,7 +62,8 @@ workflow:
       remediation_plan: 'Immediate'
       audit_report_template: 'security_audit.jinja'
 
-  - action: conductUserTesting
+  - name: conductUserTesting
+    description: 'Conduct user testing to identify usability issues and feature relevance'
     params:
       test_group: 'Selected Chiefs'
       methodologies: ['A/B Testing', 'User Interviews']
@@ -63,7 +71,8 @@ workflow:
       duration: '2 weeks'
       testing_report_template: 'user_testing.jinja'
 
-  - action: deployMonetizationPlan
+  - name: deployMonetizationPlan
+    description: 'Deploy monetization plan to generate revenue'
     params:
       channels: ['Website', 'Direct Sales']
       launch_date: 'Q2 2024'
@@ -71,7 +80,8 @@ workflow:
       tracking: 'UTM Codes'
       deployment_template: 'deployment_plan.jinja'
 
-  - action: monitorAndIterate
+  - name: monitorAndIterate
+    description: 'Monitor and iterate to improve performance'
     params:
       performance_metrics: ['Revenue', 'User Growth']
       feedback_channels: ['Surveys', 'Support Tickets']

@@ -1,7 +1,8 @@
 from dataclasses import dataclass, field
-from typing import Union, Optional
+from typing import Optional, Union
 
-from typetemp.template.typed_prompt import TypedPrompt  # Importing TypedPrompt for extending functionality
+from typetemp.template.typed_prompt import \
+    TypedPrompt  # Importing TypedPrompt for extending functionality
 
 
 @dataclass
@@ -22,9 +23,12 @@ class TypedPitchMessagePrompt(TypedPrompt):
     -----------------------------------------------------------
     __call__: Inherits the __call__ method from TypedPrompt for output generation.
     """
+
     pitch_message: Optional[str] = None  # Generated pitch message
-    source: str = ("As a leader in tech solutions for multi-family offices, I can bring unparalleled efficiency to your operations. "
-                   "Would you be interested in a free consultation to explore how we can elevate your asset management strategies?")
+    source: str = (
+        "As a leader in tech solutions for multi-family offices, I can bring unparalleled efficiency to your operations. "
+        "Would you be interested in a free consultation to explore how we can elevate your asset management strategies?"
+    )
     sys_msg: str = "You are a pitch message generation AI assistant."
 
     def __call__(self, **kwargs) -> Union[str, Optional[str]]:
@@ -42,19 +46,21 @@ class TypedPitchMessagePrompt(TypedPrompt):
         Union[str, Optional[str]]: The generated pitch message.
         """
 
-        self.pitch_message = super().__call__(**kwargs)  # Invoke TypedPrompt's call method
+        self.pitch_message = super().__call__(
+            **kwargs
+        )  # Invoke TypedPrompt's call method
 
         if self.to == "stdout":
-            print(self.pitch_message)  # Print the pitch message if stdout is the chosen output medium
+            print(
+                self.pitch_message
+            )  # Print the pitch message if stdout is the chosen output medium
 
         return self.pitch_message  # Return the generated pitch message
 
 
 if __name__ == "__main__":
     # Create an instance of TypedPitchMessagePrompt class
-    pitch_prompt = TypedPitchMessagePrompt(
-        to="stdout"
-    )
+    pitch_prompt = TypedPitchMessagePrompt(to="stdout")
 
     # Generate and output the pitch message
     pitch_prompt()
